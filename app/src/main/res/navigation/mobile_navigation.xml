@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.cortezhac.login.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/categoriaFragment"
+        android:name="com.cortezhac.login.ui.categoria.CategoriaFragment"
+        android:label="Categorias"
+        tools:layout="@layout/categoria_fragment" >
+        <action
+            android:id="@+id/action_categoriaFragment_to_listarCategoriaFragment"
+            app:destination="@id/listarCategoriaFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoFragment"
+        android:name="com.cortezhac.login.ui.producto.ProductoFragment"
+        android:label="Producto"
+        tools:layout="@layout/producto_fragment" />
+    <fragment
+        android:id="@+id/listarCategoriaFragment"
+        android:name="com.cortezhac.login.ui.categoria.ListarCategoriaFragment"
+        android:label="Categorias Dsiponibles"
+        tools:layout="@layout/listar_categoria_fragment" >
+        <action
+            android:id="@+id/action_listarCategoriaFragment_to_updateDeleteFragment"
+            app:destination="@id/updateDeleteFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteFragment"
+        android:name="com.cortezhac.login.ui.categoria.UpdateDeleteFragment"
+        android:label="update_delete_fragment"
+        tools:layout="@layout/update_delete_fragment" />
+</navigation>
