@@ -33,7 +33,6 @@ public class HomeFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_home);
         fragNombre = root.findViewById(R.id.txtViewNombre);
         fragApellido = root.findViewById(R.id.txtViewApellidos);
-        fragBtnConsultar = root.findViewById(R.id.btnConsultaR);
 
         // obtiene el texto muted del modelo de datos
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -43,13 +42,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        fragBtnConsultar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                homeViewModel.getDatosRemotos(getContext(), fragNombre, fragApellido);
-                Toast.makeText(getContext(), "Consultando 1", Toast.LENGTH_SHORT).show();
-            }
-        });
         return root;
     }
 }

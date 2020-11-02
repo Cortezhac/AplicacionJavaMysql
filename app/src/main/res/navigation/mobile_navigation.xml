@@ -42,6 +42,6 @@
     <fragment
         android:id="@+id/updateDeleteFragment"
         android:name="com.cortezhac.login.ui.categoria.UpdateDeleteFragment"
-        android:label="update_delete_fragment"
+        android:label="Actualizar / Eliminar"
         tools:layout="@layout/update_delete_fragment" />
 </navigation>
