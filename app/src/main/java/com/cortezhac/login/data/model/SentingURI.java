@@ -1,6 +1,7 @@
 package com.cortezhac.login.data.model;
 
 public class SentingURI {
-    public static final String IP1 = "192.168.43.237";
+    // Direccion del servidor que aloja la API
+    public static final String IP1 = "https://pfin2020.000webhostapp.com/";
     //static String IP1 = "";
 }

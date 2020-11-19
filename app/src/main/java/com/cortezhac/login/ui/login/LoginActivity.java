@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     SentingURI setings = new SentingURI();
-    private final String URL = "http://"+setings.IP1+"/serviceAPI/api/usuario/consultaUsuario.php";
+    private final String URL = setings.IP1+"api/usuario/consultaUsuario.php";
     private EditText nombreUsuario, clave;
 
     @Override

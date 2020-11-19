@@ -30,8 +30,7 @@ import java.util.Map;
 
 public class ProductoViewModel extends ViewModel {
     SentingURI Setings = new SentingURI();
-    private final String URL = "http://"+ Setings.IP1 +"/serviceAPI/api/producto/consultarProductos.php";
-    //private final String URL = "http://192.168.8.100/serviceAPI/api/producto/consultarProductos.php";
+    private final String URL = Setings.IP1 +"api/producto/consultarProductos.php";
     private ArrayList<String> categorias;
     private ArrayAdapter adapter;
     private String valorSeleccionado = "";

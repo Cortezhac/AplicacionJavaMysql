@@ -1,6 +1,7 @@
 package com.cortezhac.login.ui.categoria;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,8 +25,8 @@ import java.util.Map;
 public class UpdateDeleteViewModel extends ViewModel {
     SentingURI Setings = new SentingURI();
     // TODO: Implement the ViewModel
-    private final String URLUP = "http://"+ Setings.IP1+"/serviceAPI/api/categorias/actualizarCategorias.php";
-    private final String URLDEL = "http://192.168.43.237/serviceAPI/api/categorias/eliminarCategorias.php";
+    private final String URLUP = Setings.IP1+"api/categorias/actualizarCategorias.php";
+    private final String URLDEL = Setings.IP1 + "api/categorias/eliminarCategorias.php";
     
     public UpdateDeleteViewModel(){
 
