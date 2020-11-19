@@ -34,8 +34,7 @@ import java.util.Map;
 
 public class ListarCategoriaViewModel extends ViewModel {
     SentingURI Setings = new SentingURI();
-    private final String URL = "http://"+Setings.IP1+"/serviceAPI/api/categorias/consultarCategorias.php";
-    //private final String URL = "http://192.168.8.100/serviceAPI/api/categorias/consultarCategorias.php";
+    private final String URL = Setings.IP1+"api/categorias/consultarCategorias.php";
 
     // TODO: Implement the ViewModel
 
