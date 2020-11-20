@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         nombreUsuario = findViewById(R.id.editUsuario);
         clave = findViewById(R.id.editClave);
 
