@@ -40,11 +40,27 @@ public class ProductoViewModel extends ViewModel {
 
     }
 
-    public String getValorSeleccionado() {
-        return valorSeleccionado;
+    public ArrayAdapter setAdapterCategorias(Context context, ArrayList<String> categorias){
+        return new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, categorias);
     }
 
-    public void getCategorias(final Context context , final Spinner spinCategoria, final HashMap<String,String> claves){
+    public ArrayList<String> getEstadosList(){
+        ArrayList<String> estados = new ArrayList<>();
+        estados.add("Seleccione una opcion");
+        estados.add("Activo");
+        estados.add("Inactivo");
+        return estados;
+    }
+
+    public HashMap<String, String> getClavesEstados(){
+        HashMap<String, String> claves = new HashMap<>();
+        claves.put("Activo", "1");
+        claves.put("Inactivo", "0");
+        return  claves;
+    }
+
+    /*
+    public void getCategorias(final Context context , Spinner spinCategoria, final HashMap<String,String> claves){
         StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -65,20 +81,7 @@ public class ProductoViewModel extends ViewModel {
                             categorias.add(registro.getString("nom_categoria"));
                             claves.put(registro.getString("nom_categoria"), registro.getString("id_categoria"));
                         }
-                        adapter = new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, categorias);
-                        spinCategoria.setAdapter(adapter);
-                        spinCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                Log.d("SPINER ", "Valor del item " + spinCategoria.getSelectedItem());
-                                valorSeleccionado = claves.get(spinCategoria.getSelectedItem());
-                            }
 
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
                     }catch (Exception ex){
                         Log.d("RESPONSE ", "getAdapterCategorias returned : " + ex);
                     }
@@ -103,5 +106,5 @@ public class ProductoViewModel extends ViewModel {
         // Enviar peticion HTTP
         MySingleton.getInstance(context).addToRequestQueue(request);
     }
-
+    */
 }
