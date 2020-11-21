@@ -38,14 +38,14 @@ public class ProductoFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         // Puente que contiene los elementos de la vista
         final View fragemntRoot = inflater.inflate(R.layout.producto_fragment, container, false);
-        campoNmbre = fragemntRoot.findViewById(R.id.editNombreProducto);
-        campoDescripcion = fragemntRoot.findViewById(R.id.editDescripcionProducto);
-        campoStock = fragemntRoot.findViewById(R.id.editStockProducto);
-        campoPrecio = fragemntRoot.findViewById(R.id.editPrecioProducto);
-        campoUnidad = fragemntRoot.findViewById(R.id.editTipoUnidad);
-        spinEstado = fragemntRoot.findViewById(R.id.spinnerEstadoProducto);
-        spinCategoria = fragemntRoot.findViewById(R.id.spinnerCategoriasProducto);
-        guardarProducto = fragemntRoot.findViewById(R.id.btnGuradarProducto);
+     campoNmbre = fragemntRoot.findViewById(R.id.editNombreProducto);
+   campoDescripcion = fragemntRoot.findViewById(R.id.editDescripcionProducto);
+     campoStock = fragemntRoot.findViewById(R.id.editStockProducto);
+       campoPrecio = fragemntRoot.findViewById(R.id.editPrecioProducto);
+      campoUnidad = fragemntRoot.findViewById(R.id.editTipoUnidad);
+       spinEstado = fragemntRoot.findViewById(R.id.spinnerEstadoProducto);
+    spinCategoria = fragemntRoot.findViewById(R.id.spinnerCategoriasProducto);
+       guardarProducto = fragemntRoot.findViewById(R.id.btnGuradarProducto);
         return fragemntRoot;
     }
 

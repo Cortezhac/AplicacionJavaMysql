@@ -14,7 +14,7 @@
         android:layout_height="497dp"
         android:layout_marginTop="64dp"
         android:layout_marginBottom="88dp"
-        android:background="#CCCACA"
+        android:background="#E4CFADAD"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
@@ -47,7 +47,7 @@
             android:textColorHighlight="@color/colorPrimary"
             android:fontFamily="sans-serif-condensed"
             android:textSize="20dp"
-            android:hint="Nombre Usuario"
+            android:hint="Nombre de Usuario"
             android:inputType="textPersonName"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary" />

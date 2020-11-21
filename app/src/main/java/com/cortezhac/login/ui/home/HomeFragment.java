@@ -30,18 +30,18 @@ public class HomeFragment extends Fragment {
 
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         //Todo tu binding aqui
-        final TextView textView = root.findViewById(R.id.text_home);
-        fragNombre = root.findViewById(R.id.txtViewNombre);
-        fragApellido = root.findViewById(R.id.txtViewApellidos);
+      //  final TextView textView = root.findViewById(R.id.text_home);
+     //   fragNombre = root.findViewById(R.id.txtViewNombre);
+      //  fragApellido = root.findViewById(R.id.txtViewApellidos);
 
         // obtiene el texto muted del modelo de datos
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
+     //   homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+           /* @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
         });
-
+*/
         return root;
     }
 }
