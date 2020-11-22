@@ -12,8 +12,9 @@
 
     <fragment
         android:id="@+id/categoriaFragment"
+        android:label="   "
         android:name="com.cortezhac.login.ui.categoria.CategoriaFragment"
-        android:label="Categorias"
+
         tools:layout="@layout/categoria_fragment" >
         <action
             android:id="@+id/action_categoriaFragment_to_listarCategoriaFragment"
@@ -25,13 +26,13 @@
     </fragment>
     <fragment
         android:id="@+id/productoFragment"
+        android:label="  "
         android:name="com.cortezhac.login.ui.producto.ProductoFragment"
-        android:label="Producto"
+
         tools:layout="@layout/producto_fragment" />
     <fragment
         android:id="@+id/listarCategoriaFragment"
         android:name="com.cortezhac.login.ui.categoria.ListarCategoriaFragment"
-        android:label="Categorias Dsiponibles"
         tools:layout="@layout/listar_categoria_fragment" >
         <action
             android:id="@+id/action_listarCategoriaFragment_to_updateDeleteFragment"
@@ -42,6 +43,16 @@
     <fragment
         android:id="@+id/updateDeleteFragment"
         android:name="com.cortezhac.login.ui.categoria.UpdateDeleteFragment"
-        android:label="Actualizar / Eliminar"
         tools:layout="@layout/update_delete_fragment" />
+
+
+
+    <fragment
+        android:id="@+id/usuarioFragment"
+        android:name="com.cortezhac.login.ui.usuario.UsuarioFragment"
+
+        tools:layout="@layout/fragment_usuario" />
+
+
+
 </navigation>

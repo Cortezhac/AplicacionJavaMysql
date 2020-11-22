@@ -16,5 +16,9 @@
             android:id="@+id/productoFragment"
             android:icon="@drawable/ic_prodcuto"
             android:title="@string/menu_producto" />
+        <item
+            android:id="@+id/usuarioFragment"
+            android:icon="@drawable/ic_usuario"
+            android:title="@string/menu_usuario" />
     </group>
 </menu>
