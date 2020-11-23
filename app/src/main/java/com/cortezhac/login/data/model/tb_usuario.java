@@ -15,6 +15,7 @@ public class tb_usuario {
     private String respuesta;
     private Date objFecha;
     private String fechaString;
+    private String estadoString;
 
     public tb_usuario(){
 
@@ -114,5 +115,13 @@ public class tb_usuario {
 
     public void setFechaString(String fechaString) {
         this.fechaString = fechaString;
+    }
+
+    public String getEstadoString() {
+        return estadoString;
+    }
+
+    public void setEstadoString(String estadoString) {
+        this.estadoString = estadoString;
     }
 }

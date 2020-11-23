@@ -44,15 +44,32 @@
         android:id="@+id/updateDeleteFragment"
         android:name="com.cortezhac.login.ui.categoria.UpdateDeleteFragment"
         tools:layout="@layout/update_delete_fragment" />
-
-
-
     <fragment
         android:id="@+id/usuarioFragment"
         android:name="com.cortezhac.login.ui.usuario.UsuarioFragment"
-
-        tools:layout="@layout/fragment_usuario" />
-
-
-
+        tools:layout="@layout/usuario_fragment"
+        android:label="Usuario">
+        <action
+            android:id="@+id/action_usuarioFragment_to_listarUsuarioFragment"
+            app:destination="@id/listarUsuario"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/listarUsuario"
+        android:name="com.cortezhac.login.ui.usuario.ListarUsuario"
+        android:label="ListarUsuario" tools:layout="@layout/listar_usuario_fragment" >
+        <action
+            android:id="@+id/action_listarUsuarioFragment_to_updateDeleteFragment"
+            app:destination="@id/updateDeleteUsuarioFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteUsuarioFragment"
+        android:name="com.cortezhac.login.ui.usuario.UpdateDeleteUsuarioFragment"
+        android:label="update_delete__usuariofragment"
+        tools:layout="@layout/update_delete__usuariofragment" />
 </navigation>

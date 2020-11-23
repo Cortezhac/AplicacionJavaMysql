@@ -1,10 +1,8 @@
 package com.cortezhac.login.ui.producto;
 
-import androidx.annotation.RequiresApi;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,9 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -25,7 +21,6 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -66,7 +61,7 @@ public class ProductoFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         // Puente que contiene los elementos de la vista
         final View fragemntRoot = inflater.inflate(R.layout.producto_fragment, container, false);
-        campoNmbre = fragemntRoot.findViewById(R.id.editNombreProducto);
+        campoNmbre = fragemntRoot.findViewById(R.id.editNombreUsuario);
         campoDescripcion = fragemntRoot.findViewById(R.id.editDescripcionProducto);
         campoStock = fragemntRoot.findViewById(R.id.editStockProducto);
         campoPrecio = fragemntRoot.findViewById(R.id.editPrecioProducto);

@@ -18,7 +18,7 @@
             android:title="@string/menu_producto" />
         <item
             android:id="@+id/usuarioFragment"
-            android:icon="@drawable/ic_usuario"
+            android:icon="@drawable/ic_usuarios"
             android:title="@string/menu_usuario" />
     </group>
 </menu>
