@@ -31,6 +31,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.cortezhac.login.R;
 import com.cortezhac.login.data.model.SentingURI;
+import com.cortezhac.login.data.model.tb_producto;
 import com.cortezhac.login.data.volley.MySingleton;
 
 import org.json.JSONArray;
@@ -42,15 +43,17 @@ import java.util.Map;
 
 public class ProductoFragment extends Fragment {
     // Elementos de la vista
-    private Button guardarProducto;
+    private Button guardarProducto , listarProducto;
     private EditText campoNmbre, campoDescripcion, campoStock, campoPrecio, campoUnidad;
     // Elementos para el Spinner
     private Spinner spinCategoria, spinEstado;
-    private ArrayList<String> categorias, estados;
-    private HashMap<String, String> clavesCategorias, clavesEstado;
+    private ArrayList<String> categorias; // Contendra los Strings del espinner
+    private HashMap<String, String> clavesCategorias;// Contendra las claves String y su valor correspondiente
     // Link del servidor
     SentingURI Setings = new SentingURI();
     private final String URL = Setings.IP1 +"api/producto/consultarProductos.php";
+    // Tabla de datos
+    tb_producto nuevoProducto = new tb_producto();;
     // Modelo de manipulacion
     private ProductoViewModel mViewModel;
 
@@ -63,14 +66,15 @@ public class ProductoFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         // Puente que contiene los elementos de la vista
         final View fragemntRoot = inflater.inflate(R.layout.producto_fragment, container, false);
-     campoNmbre = fragemntRoot.findViewById(R.id.editNombreProducto);
-   campoDescripcion = fragemntRoot.findViewById(R.id.editDescripcionProducto);
-     campoStock = fragemntRoot.findViewById(R.id.editStockProducto);
-       campoPrecio = fragemntRoot.findViewById(R.id.editPrecioProducto);
-      campoUnidad = fragemntRoot.findViewById(R.id.editTipoUnidad);
-       spinEstado = fragemntRoot.findViewById(R.id.spinnerEstadoProducto);
-    spinCategoria = fragemntRoot.findViewById(R.id.spinnerCategoriasProducto);
-       guardarProducto = fragemntRoot.findViewById(R.id.btnGuradarProducto);
+        campoNmbre = fragemntRoot.findViewById(R.id.editNombreProducto);
+        campoDescripcion = fragemntRoot.findViewById(R.id.editDescripcionProducto);
+        campoStock = fragemntRoot.findViewById(R.id.editStockProducto);
+        campoPrecio = fragemntRoot.findViewById(R.id.editPrecioProducto);
+        campoUnidad = fragemntRoot.findViewById(R.id.editTipoUnidad);
+        spinEstado = fragemntRoot.findViewById(R.id.spinnerEstadoProducto);
+        spinCategoria = fragemntRoot.findViewById(R.id.spinnerCategoriasProducto);
+        guardarProducto = fragemntRoot.findViewById(R.id.btnGuradarProducto);
+        listarProducto = fragemntRoot.findViewById(R.id.btnListarProducto);
         return fragemntRoot;
     }
 
@@ -79,33 +83,59 @@ public class ProductoFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // La confugrcion de los elementos graficos se realizan en este objeto
         mViewModel = ViewModelProviders.of(this).get(ProductoViewModel.class);
-        // Iniciamos la lista de estados con sus claves
-        estados = mViewModel.getEstadosList();
-        clavesEstado = mViewModel.getClavesEstados();
         // Obtener categorias
         getCategorias(getContext());
         // Evento onItemSelected de las categorias
         spinCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                if(!categorias.get(i).equals("Seleccione una opcion")){
+                    nuevoProducto.setCategoria(Integer.parseInt(clavesCategorias.get(categorias.get(i))));
+                }else{
+                    Toast.makeText(getContext(), "Seleccione una categoria", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                Toast.makeText(getContext(), "Por favor seleccione una opcion", Toast.LENGTH_SHORT).show();
             }
         });
+        // Iniciamos el adaptador con la lista de estados
+        spinEstado.setAdapter(mViewModel.setAdapterEstados(getContext(), mViewModel.getEstadosList()));
         // Evento onItemSelected de los estados
         spinEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                if(!mViewModel.getEstadosList().get(i).equals("Seleccione una opcion")){
+                    //                                                     Hasmap Estados                   claves estados         
+                    nuevoProducto.setEstado_producto(Integer.parseInt(mViewModel.getClavesEstados().get(mViewModel.getEstadosList().get(i))));
+                }else{
+                    Toast.makeText(getContext(), "Seleecione un estado", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                Toast.makeText(getContext(), "Seleccione una estado", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // Evento onclick que capturara los datos;
+        guardarProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Validar todos los campos
+                if((mViewModel.validarEditText(campoNmbre) && mViewModel.validarEditText(campoDescripcion)) &&
+                        (mViewModel.validarEditText(campoDescripcion) && mViewModel.validarEditText(campoStock)) &&
+                        (mViewModel.validarEditText(campoPrecio) && mViewModel.validarEditText(campoUnidad))){
+                    nuevoProducto.setNombre_producto(campoNmbre.getText().toString());
+                    nuevoProducto.setDescripcion_producto(campoDescripcion.getText().toString());
+                    nuevoProducto.setStock(Double.parseDouble(campoStock.getText().toString()));
+                    nuevoProducto.setPrecio(Double.parseDouble(campoPrecio.getText().toString()));
+                    nuevoProducto.setUnidad_medida(campoUnidad.getText().toString());
+                    Log.i("Dato Get", "Datos capturados : " + nuevoProducto.getNombre_producto() + "\n Estado"
+                    + nuevoProducto.getEstado_producto());
+                }
             }
         });
     }
@@ -128,7 +158,9 @@ public class ProductoFragment extends Fragment {
                         for (int i = 0; i < datosRemotos.length(); i++){
                             // Los datos traidos son son separados por fila de datos
                             registro = new JSONObject(datosRemotos.getString(i));
+                            // Retornamos el nombre de la categoria en una lista
                             categorias.add(registro.getString("nom_categoria"));
+                            // Guardamos el nombre y el valor correpodiente a la categoria
                             clavesCategorias.put(registro.getString("nom_categoria"), registro.getString("id_categoria"));
                         }
                         // Llenar arreglo con categorias

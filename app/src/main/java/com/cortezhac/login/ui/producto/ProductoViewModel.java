@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.cortezhac.login.R;
 import com.cortezhac.login.data.model.SentingURI;
+import com.cortezhac.login.data.model.tb_producto;
 import com.cortezhac.login.data.volley.MySingleton;
 
 import org.json.JSONArray;
@@ -44,6 +45,10 @@ public class ProductoViewModel extends ViewModel {
         return new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, categorias);
     }
 
+    public ArrayAdapter setAdapterEstados(Context context, ArrayList<String> estados){
+        return new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, estados);
+    }
+
     public ArrayList<String> getEstadosList(){
         ArrayList<String> estados = new ArrayList<>();
         estados.add("Seleccione una opcion");
@@ -57,6 +62,19 @@ public class ProductoViewModel extends ViewModel {
         claves.put("Activo", "1");
         claves.put("Inactivo", "0");
         return  claves;
+    }
+
+    public void guardarDatosRemotos(Context context, tb_producto producto){
+
+    }
+
+    public boolean validarEditText(EditText editText){
+        boolean condicion = true;
+        if(!(editText.getText().toString().length() > 0)){
+            editText.setError("Campo obligatorio");
+            condicion = false;
+        }
+        return condicion;
     }
 
     /*
