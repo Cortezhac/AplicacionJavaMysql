@@ -48,7 +48,7 @@
         android:id="@+id/usuarioFragment"
         android:name="com.cortezhac.login.ui.usuario.UsuarioFragment"
         tools:layout="@layout/usuario_fragment"
-        android:label="Usuario">
+        android:label=" ">
         <action
             android:id="@+id/action_usuarioFragment_to_listarUsuarioFragment"
             app:destination="@id/listarUsuario"
@@ -60,7 +60,7 @@
     <fragment
         android:id="@+id/listarUsuario"
         android:name="com.cortezhac.login.ui.usuario.ListarUsuario"
-        android:label="ListarUsuario" tools:layout="@layout/listar_usuario_fragment" >
+        android:label=" " tools:layout="@layout/listar_usuario_fragment" >
         <action
             android:id="@+id/action_listarUsuarioFragment_to_updateDeleteFragment"
             app:destination="@id/updateDeleteUsuarioFragment"
@@ -70,6 +70,6 @@
     <fragment
         android:id="@+id/updateDeleteUsuarioFragment"
         android:name="com.cortezhac.login.ui.usuario.UpdateDeleteUsuarioFragment"
-        android:label="update_delete__usuariofragment"
+        android:label=" "
         tools:layout="@layout/update_delete__usuariofragment" />
 </navigation>

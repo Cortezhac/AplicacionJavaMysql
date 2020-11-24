@@ -4,7 +4,324 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/color"
     tools:context=".ui.usuario.UpdateDeleteUsuarioFragment">
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="331dp"
+            android:layout_height="497dp"
+            android:layout_marginTop="86dp"
+            android:layout_marginBottom="88dp"
+            android:background="@drawable/mi_fondo"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="298dp"
+                android:layout_height="193dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="325dp"
+                app:srcCompat="@drawable/edit" />
+
+
+            <TextView
+
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Nombres"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+
+            <EditText
+                android:id="@+id/NombreUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+
+            <TextView
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Apellidos"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+            <EditText
+                android:id="@+id/ApellidoUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Correo"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/CorreoUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Usuario"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+
+            <EditText
+                android:id="@+id/UserUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nickname del usuario"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Clave"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/ContrasenaUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="********"
+                android:inputType="textPassword" />
+
+
+            <TextView
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Tipo"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+
+            <Spinner
+                android:id="@+id/spinnerTipoUsuarioUpdate"
+                style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Estado"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <Spinner
+                android:id="@+id/spinnerEstadoUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Pregunta"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <Spinner
+                android:id="@+id/spinnerPreguntaUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_width="319dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColorHighlight="@color/colorPrimary"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20dp"
+                android:hint="Respuesta"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/RespuestaUsuarioUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Respuesta"
+                android:inputType="text" />
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                android:layout_marginTop="45dp"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/btnActualizarUsuarioUpdate"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/color3"
+                    android:text="EDITAR"
+                    android:textColor="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+
+
+                <Button
+                    android:id="@+id/btnEliminarUsuarioUpdate"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/color3"
+                    android:text="ELIMINAR"
+                    android:textColor="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnGuardar"  />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -263,5 +580,5 @@
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-    </ScrollView>
+    </ScrollView>-->
 </FrameLayout>
