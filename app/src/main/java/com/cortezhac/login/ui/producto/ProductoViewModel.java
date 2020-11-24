@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class ProductoViewModel extends ViewModel {
     SentingURI Setings = new SentingURI();
-    private final String URL = Setings.IP1 +"api/producto/consultarProductos.php";
+    private final String URL = Setings.IP1 +"api/producto/guardarProducto.php";
     private ArrayList<String> categorias;
     private ArrayAdapter adapter;
     private String valorSeleccionado = "";
@@ -64,10 +64,6 @@ public class ProductoViewModel extends ViewModel {
         return  claves;
     }
 
-    public void guardarDatosRemotos(Context context, tb_producto producto){
-
-    }
-
     public boolean validarEditText(EditText editText){
         boolean condicion = true;
         if(!(editText.getText().toString().length() > 0)){
@@ -75,6 +71,53 @@ public class ProductoViewModel extends ViewModel {
             condicion = false;
         }
         return condicion;
+    }
+
+    public void guardarProducto(final Context context, final tb_producto nuevoProducto){
+        StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.equals("1")){
+                    Toast.makeText(context, "Los datos enviados", Toast.LENGTH_SHORT).show();
+                }else{
+                    JSONObject respuesta;
+                    try{
+                        respuesta = new JSONObject(response);
+                        if(respuesta.getString("estado").equals("0")){
+                            Toast.makeText(context, "El producto se guardo con exito", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(context, "Ocurrio un error :(", Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception ex){
+                        Log.i("Response" , "Returned: " + ex);
+                    }
+                }
+                Log.d("Response", "onResponse: " + response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "Sin conexion a internet", Toast.LENGTH_SHORT).show();
+                Log.i("Error Response", "Returned: " + error);
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> producto = new HashMap<>();
+                producto.put("Content-Type", "application/json; charset=utf-8");
+                producto.put("Accept", "application/json");
+                producto.put("nombre", nuevoProducto.getNombre_producto());
+                producto.put("descripcion", nuevoProducto.getDescripcion_producto());
+                producto.put("stock", String.valueOf(nuevoProducto.getStock()));
+                producto.put("precio", String.valueOf(nuevoProducto.getPrecio()));
+                producto.put("unidad", nuevoProducto.getUnidad_medida());
+                producto.put("estado", String.valueOf(nuevoProducto.getEstado_producto()));
+                producto.put("categoria", String.valueOf(nuevoProducto.getCategoria()));
+                return  producto;
+            }
+        };
+
+        MySingleton.getInstance(context).addToRequestQueue(request);
     }
 
     /*

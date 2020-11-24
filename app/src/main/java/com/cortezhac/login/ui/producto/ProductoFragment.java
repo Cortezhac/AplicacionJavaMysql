@@ -46,7 +46,7 @@ public class ProductoFragment extends Fragment {
     private HashMap<String, String> clavesCategorias;// Contendra las claves String y su valor correspondiente
     // Link del servidor
     SentingURI Setings = new SentingURI();
-    private final String URL = Setings.IP1 +"api/producto/consultarProductos.php";
+    private final String URL = Setings.IP1 +"api/categorias/consultarCategorias.php";
     // Tabla de datos
     tb_producto nuevoProducto = new tb_producto();;
     // Modelo de manipulacion
@@ -61,7 +61,7 @@ public class ProductoFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         // Puente que contiene los elementos de la vista
         final View fragemntRoot = inflater.inflate(R.layout.producto_fragment, container, false);
-        campoNmbre = fragemntRoot.findViewById(R.id.editNombreUsuario);
+        campoNmbre = fragemntRoot.findViewById(R.id.editNombreProducto);
         campoDescripcion = fragemntRoot.findViewById(R.id.editDescripcionProducto);
         campoStock = fragemntRoot.findViewById(R.id.editStockProducto);
         campoPrecio = fragemntRoot.findViewById(R.id.editPrecioProducto);
@@ -86,6 +86,7 @@ public class ProductoFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(!categorias.get(i).equals("Seleccione una opcion")){
                     nuevoProducto.setCategoria(Integer.parseInt(clavesCategorias.get(categorias.get(i))));
+                    nuevoProducto.setCategoriaString(categorias.get(i));
                 }else{
                     Toast.makeText(getContext(), "Seleccione una categoria", Toast.LENGTH_SHORT).show();
                 }
@@ -112,7 +113,7 @@ public class ProductoFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getContext(), "Seleccione una estado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Seleccione un estado", Toast.LENGTH_SHORT).show();
             }
         });
         // Evento onclick que capturara los datos;
@@ -130,6 +131,11 @@ public class ProductoFragment extends Fragment {
                     nuevoProducto.setUnidad_medida(campoUnidad.getText().toString());
                     Log.i("Dato Get", "Datos capturados : " + nuevoProducto.getNombre_producto() + "\n Estado"
                     + nuevoProducto.getEstado_producto());
+                    if(!nuevoProducto.getCategoriaString().equals("")){
+                        mViewModel.guardarProducto(getContext(), nuevoProducto);
+                    }else{
+                        Toast.makeText(getContext(), "Por favor complete el formulario", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
