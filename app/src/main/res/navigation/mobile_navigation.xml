@@ -83,6 +83,15 @@
     <fragment
         android:id="@+id/listarProductoFragment"
         android:name="com.cortezhac.login.ui.producto.ListarProductoFragment"
-        android:label="fragment_listar_producto"
-        tools:layout="@layout/fragment_listar_producto" />
+        android:label="Lista de Productos"
+        tools:layout="@layout/fragment_listar_producto">
+        <action
+            android:id="@+id/action_listarProductoFragment_to_updateDeleteFragment2"
+            app:destination="@id/updateDeleteFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteFragment2"
+        android:name="com.cortezhac.login.ui.producto.UpdateDeleteFragment"
+        android:label="Actualizar/Eliminar"
+        tools:layout="@layout/update_delete_fragment2" />
 </navigation>
