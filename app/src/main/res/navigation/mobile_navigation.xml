@@ -29,7 +29,15 @@
         android:label="  "
         android:name="com.cortezhac.login.ui.producto.ProductoFragment"
 
-        tools:layout="@layout/producto_fragment" />
+        tools:layout="@layout/producto_fragment" >
+        <action
+            android:id="@+id/action_productoFragment_to_listarProductoFragment"
+            app:destination="@id/listarProductoFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
+    </fragment>
     <fragment
         android:id="@+id/listarCategoriaFragment"
         android:name="com.cortezhac.login.ui.categoria.ListarCategoriaFragment"
@@ -72,4 +80,9 @@
         android:name="com.cortezhac.login.ui.usuario.UpdateDeleteUsuarioFragment"
         android:label=" "
         tools:layout="@layout/update_delete__usuariofragment" />
+    <fragment
+        android:id="@+id/listarProductoFragment"
+        android:name="com.cortezhac.login.ui.producto.ListarProductoFragment"
+        android:label="fragment_listar_producto"
+        tools:layout="@layout/fragment_listar_producto" />
 </navigation>

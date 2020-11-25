@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -139,6 +140,9 @@ public class ProductoFragment extends Fragment {
                 }
             }
         });
+        
+        // Boton que muestra el fragmento de lista de productos
+        listarProducto.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_productoFragment_to_listarProductoFragment));
     }
 
     public void getCategorias(final Context context){
