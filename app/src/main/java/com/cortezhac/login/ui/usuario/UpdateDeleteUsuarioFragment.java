@@ -116,9 +116,45 @@ public class UpdateDeleteUsuarioFragment extends Fragment {
         editarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Procesando...", Toast.LENGTH_SHORT).show();
-                mViewModel.actualizaDatosRemotos(getContext(), id, campoNombre.getText().toString(), campoApe.getText().toString(), campoCorreo.getText().toString(),
-                        campoUser.getText().toString(), campoContra.getText().toString(), tipos, estados, preguntas, campoRespuesta.getText().toString());
+                if(campoNombre.getText().toString().length() > 0){
+                    if (campoApe.getText().toString().length() > 0){
+                        if (campoCorreo.getText().toString().length() > 0) {
+                            if (campoUser.getText().toString().length()>0){
+                                if (campoContra.getText().toString().length() > 0 && campoContra.getText().toString().length() >= 8 ){
+                                    if (spinTipo.getId() != 0){
+                                        if (spinEstado.getId() != 0){
+                                            if (spinPregunta.getId() != 0){
+                                                if (campoApe.getText().toString().length() > 0){
+                                                    Toast.makeText(getContext(), "Procesando...", Toast.LENGTH_SHORT).show();
+                                                    mViewModel.actualizaDatosRemotos(getContext(), id, campoNombre.getText().toString(), campoApe.getText().toString(), campoCorreo.getText().toString(),
+                                                            campoUser.getText().toString(), campoContra.getText().toString(), tipos, estados, preguntas, campoRespuesta.getText().toString());
+                                                }else {
+                                                    campoRespuesta.setError("Campo obligatorio");
+                                                }
+                                            }else {
+                                                Toast.makeText(getContext(), "Seleccione una pregunta", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }else {
+                                            Toast.makeText(getContext(), "Seleccione un estado", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }else {
+                                        Toast.makeText(getContext(), "Seleccione un tipo de usuario", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else {
+                                    campoContra.setError("Campo obligatorio");
+                                }
+                            }else {
+                                campoUser.setError("Campo obligatorio");
+                            }
+                        }else {
+                            campoCorreo.setError("Campo obligatorio");
+                        }
+                    }else {
+                        campoApe.setError("Campo obligatorio");
+                    }
+                }else{
+                    campoNombre.setError("Campo obligatorio");
+                }
                 if(getActivity() != null){
                     getActivity().onBackPressed();
                 }

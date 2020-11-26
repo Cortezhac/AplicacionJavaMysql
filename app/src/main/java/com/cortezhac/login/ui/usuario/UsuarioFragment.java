@@ -127,8 +127,40 @@ public class UsuarioFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(campoNmbre.getText().toString().length() > 0){
-                    Toast.makeText(getContext(), "Procesando...." ,Toast.LENGTH_SHORT).show();
-                    mViewModel.guardarDatosRemotos(getContext(), campoNmbre, campoApe, campoCorreo,campoUser, campoContra, tipo, estado, pregunta, campoRespuesta);
+                    if (campoApe.getText().toString().length() > 0){
+                        if (campoCorreo.getText().toString().length() > 0) {
+                            if (campoUser.getText().toString().length()>0){
+                                if (campoContra.getText().toString().length() > 0 && campoContra.getText().toString().length() >= 8 ){
+                                    if (spinTipo.getId() != 0){
+                                        if (spinEstado.getId() != 0){
+                                            if (spinPregunta.getId() != 0){
+                                                if (campoApe.getText().toString().length() > 0){
+                                                    Toast.makeText(getContext(), "Procesando...." ,Toast.LENGTH_SHORT).show();
+                                                    mViewModel.guardarDatosRemotos(getContext(), campoNmbre, campoApe, campoCorreo,campoUser, campoContra, tipo, estado, pregunta, campoRespuesta);
+                                                }else {
+                                                    campoRespuesta.setError("Campo obligatorio");
+                                                }
+                                            }else {
+                                                Toast.makeText(getContext(), "Seleccione una pregunta", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }else {
+                                            Toast.makeText(getContext(), "Seleccione un estado", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }else {
+                                        Toast.makeText(getContext(), "Seleccione un tipo de usuario", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else {
+                                    campoContra.setError("Campo obligatorio");
+                                }
+                            }else {
+                                campoUser.setError("Campo obligatorio");
+                            }
+                        }else {
+                            campoCorreo.setError("Campo obligatorio");
+                        }
+                    }else {
+                        campoApe.setError("Campo obligatorio");
+                    }
                 }else{
                     campoNmbre.setError("Campo obligatorio");
                 }
