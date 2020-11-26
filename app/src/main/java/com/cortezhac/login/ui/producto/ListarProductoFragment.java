@@ -124,7 +124,7 @@ public class ListarProductoFragment extends Fragment {
                         adapter.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(getContext(), "Click en " + productosList.get(productosAdapter.getChildAdapterPosition(view)).getNombre_producto(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Selecciono el producto: " + productosList.get(productosAdapter.getChildAdapterPosition(view)).getNombre_producto(), Toast.LENGTH_SHORT).show();
                             }
                         });
 

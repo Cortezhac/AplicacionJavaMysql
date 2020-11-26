@@ -10,22 +10,27 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:background="@drawable/base"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="80dp"
+            android:layout_height="145dp"
             android:layout_gravity="start"
-            android:layout_weight="3"
             android:contentDescription="Tag"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_usuario"
             tools:srcCompat="@drawable/ic_usuario" />
 
         <TableLayout
-            android:layout_width="wrap_content"
+
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:baselineAligned="false"
@@ -43,7 +48,7 @@
 
                 <TextView
                     android:id="@+id/customTextIdUsuario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="184dp"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
             </TableRow>
@@ -60,7 +65,7 @@
 
                 <TextView
                     android:id="@+id/customTextNombreUsuario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="217dp"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
             </TableRow>
@@ -77,7 +82,7 @@
 
                 <TextView
                     android:id="@+id/customTextApellidoUsuario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
             </TableRow>
@@ -94,7 +99,7 @@
 
                 <TextView
                     android:id="@+id/customTextCorreoUsuario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
             </TableRow>
@@ -111,7 +116,7 @@
 
                 <TextView
                     android:id="@+id/customTextUserUsuario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
             </TableRow>
@@ -128,7 +133,7 @@
 
                 <TextView
                     android:id="@+id/customTextEstadoUsuario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
             </TableRow>

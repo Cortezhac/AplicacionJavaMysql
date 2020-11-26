@@ -134,7 +134,7 @@ public class UsuarioFragment extends Fragment {
                                     if (spinTipo.getId() != 0){
                                         if (spinEstado.getId() != 0){
                                             if (spinPregunta.getId() != 0){
-                                                if (campoApe.getText().toString().length() > 0){
+                                                if (campoRespuesta.getText().toString().length() > 0){
                                                     Toast.makeText(getContext(), "Procesando...." ,Toast.LENGTH_SHORT).show();
                                                     mViewModel.guardarDatosRemotos(getContext(), campoNmbre, campoApe, campoCorreo,campoUser, campoContra, tipo, estado, pregunta, campoRespuesta);
                                                 }else {

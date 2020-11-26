@@ -72,7 +72,7 @@ public class ListarCategoriaViewModel extends ViewModel {
                         adapter.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(context, "Click en " + listaArticulos.get(listaCategorias.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Selecciono la categoria: " + listaArticulos.get(listaCategorias.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
                                 // Datos para enviar
                                 Bundle datos = new Bundle();
                                 datos.putInt("id", listaArticulos.get(listaCategorias.getChildAdapterPosition(view)).getId());

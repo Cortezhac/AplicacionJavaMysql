@@ -122,22 +122,27 @@ public class ProductoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // Validar todos los campos
-                if((mViewModel.validarEditText(campoNmbre) && mViewModel.validarEditText(campoDescripcion)) &&
-                        (mViewModel.validarEditText(campoDescripcion) && mViewModel.validarEditText(campoStock)) &&
-                        (mViewModel.validarEditText(campoPrecio) && mViewModel.validarEditText(campoUnidad))){
-                    nuevoProducto.setNombre_producto(campoNmbre.getText().toString());
-                    nuevoProducto.setDescripcion_producto(campoDescripcion.getText().toString());
-                    nuevoProducto.setStock(Double.parseDouble(campoStock.getText().toString()));
-                    nuevoProducto.setPrecio(Double.parseDouble(campoPrecio.getText().toString()));
-                    nuevoProducto.setUnidad_medida(campoUnidad.getText().toString());
-                    Log.i("Dato Get", "Datos capturados : " + nuevoProducto.getNombre_producto() + "\n Estado"
-                    + nuevoProducto.getEstado_producto());
-                    if(!nuevoProducto.getCategoriaString().equals("")){
-                        mViewModel.guardarProducto(getContext(), nuevoProducto);
-                    }else{
-                        Toast.makeText(getContext(), "Por favor complete el formulario", Toast.LENGTH_SHORT).show();
-                    }
+        try {
+            if((mViewModel.validarEditText(campoNmbre) && mViewModel.validarEditText(campoDescripcion)) &&
+                    (mViewModel.validarEditText(campoDescripcion) && mViewModel.validarEditText(campoStock)) &&
+                    (mViewModel.validarEditText(campoPrecio) && mViewModel.validarEditText(campoUnidad))){
+                nuevoProducto.setNombre_producto(campoNmbre.getText().toString());
+                nuevoProducto.setDescripcion_producto(campoDescripcion.getText().toString());
+                nuevoProducto.setStock(Double.parseDouble(campoStock.getText().toString()));
+                nuevoProducto.setPrecio(Double.parseDouble(campoPrecio.getText().toString()));
+                nuevoProducto.setUnidad_medida(campoUnidad.getText().toString());
+                Log.i("Dato Get", "Datos capturados : " + nuevoProducto.getNombre_producto() + "\n Estado"
+                        + nuevoProducto.getEstado_producto());
+                if(!nuevoProducto.getCategoriaString().equals("Seleccione una opcion")){
+                    mViewModel.guardarProducto(getContext(), nuevoProducto);
+                }else{
+                    Toast.makeText(getContext(), "Por favor complete el formulario", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+        }catch (Exception ex){
+            Toast.makeText(getContext(), "Selecciones invalidas, ver ", Toast.LENGTH_SHORT).show();
+        }
             }
         });
         
