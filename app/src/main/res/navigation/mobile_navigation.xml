@@ -83,6 +83,16 @@
     <fragment
         android:id="@+id/listarProductoFragment"
         android:name="com.cortezhac.login.ui.producto.ListarProductoFragment"
-        android:label="fragment_listar_producto"
+        android:label=" "
         tools:layout="@layout/fragment_listar_producto" />
+
+    <fragment
+        android:id="@+id/Acercade"
+        android:name="com.cortezhac.login.ui.login.Acerca"
+        android:label=" "
+        tools:layout="@layout/activity_acercade" />
+
+
+
+
 </navigation>

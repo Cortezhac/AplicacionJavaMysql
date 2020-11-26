@@ -20,5 +20,9 @@
             android:id="@+id/usuarioFragment"
             android:icon="@drawable/ic_usuarios"
             android:title="@string/menu_usuario" />
+        <item
+            android:id="@+id/Acercade"
+            android:icon="@drawable/ic_ace"
+            android:title="@string/menu_acerca" />
     </group>
 </menu>
