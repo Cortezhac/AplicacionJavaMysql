@@ -86,7 +86,7 @@ public class UpdateDeleteFragment extends Fragment {
 
         // Asignar los campos a la vista
         nombre.setText(producto.getNombre_producto());
-        descripcion.setText(producto.getNombre_producto());
+        descripcion.setText(producto.getDescripcion_producto());
         stock.setText(String.valueOf(producto.getStock()));
         precio.setText(String.valueOf(producto.getPrecio()));
         unidad.setText(producto.getUnidad_medida());
