@@ -10,6 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_producto">Producto</string>
     <string name="menu_usuario">Usuario</string>
+    <string name="menu_acerca">Acerca de</string>
     <string name="menu_categoria">Categoria</string>
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>

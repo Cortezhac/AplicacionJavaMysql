@@ -94,4 +94,9 @@
         android:name="com.cortezhac.login.ui.producto.UpdateDeleteFragment"
         android:label="Actualizar/Eliminar"
         tools:layout="@layout/update_delete_fragment2" />
+    <fragment
+        android:id="@+id/Acercade"
+        android:name="com.cortezhac.login.ui.login.Acerca"
+        android:label=" "
+        tools:layout="@layout/activity_acercade" />
 </navigation>

@@ -99,7 +99,6 @@ public class ListarProductoFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        final Fragment fragment = this;
         StringRequest request = new StringRequest(Request.Method.POST, URLListar, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -115,10 +114,6 @@ public class ListarProductoFragment extends Fragment {
                             registro = new JSONObject(lista.getString(i));
                             producto.setId_producto(registro.getInt("id_producto"));
                             producto.setNombre_producto(registro.getString("nom_producto"));
-                            producto.setDescripcion_producto(registro.getString("des_producto"));
-                            producto.setStock(registro.getInt("stock"));
-                            producto.setPrecio(registro.getDouble("precio"));
-                            producto.setUnidad_medida(registro.getString("unidad_medida"));
                             producto.setEstado_producto(registro.getInt("estado_producto"));
                             producto.setCategoria(registro.getInt("categoria"));
                             productosList.add(producto);
@@ -131,18 +126,6 @@ public class ListarProductoFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 Toast.makeText(getContext(), "Click en " + productosList.get(productosAdapter.getChildAdapterPosition(view)).getNombre_producto(), Toast.LENGTH_SHORT).show();
-                                // Datos para enviar
-                                Bundle datos = new Bundle();
-                                datos.putString("id", String.valueOf(productosList.get(productosAdapter.getChildAdapterPosition(view)).getId_producto()));
-                                datos.putString("nombre", productosList.get(productosAdapter.getChildAdapterPosition(view)).getNombre_producto());
-                                datos.putString("descrip", productosList.get(productosAdapter.getChildAdapterPosition(view)).getDescripcion_producto());
-                                datos.putString("stock", String.valueOf(productosList.get(productosAdapter.getChildAdapterPosition(view)).getStock()));
-                                datos.putString("precio", String.valueOf(productosList.get(productosAdapter.getChildAdapterPosition(view)).getPrecio()));
-                                datos.putString("unidad", String.valueOf(productosList.get(productosAdapter.getChildAdapterPosition(view)).getUnidad_medida()));
-                                datos.putString("estado", String.valueOf(productosList.get(productosAdapter.getChildAdapterPosition(view)).getEstado_producto()));
-                                datos.putString("categoria", String.valueOf(productosList.get(productosAdapter.getChildAdapterPosition(view)).getCategoria()));
-
-                                NavHostFragment.findNavController(fragment).navigate(R.id.action_listarProductoFragment_to_updateDeleteFragment2, datos);
                             }
                         });
 

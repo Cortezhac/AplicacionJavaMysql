@@ -77,7 +77,7 @@ public class ListarUsuarioViewModel extends ViewModel {
                         adapter.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(context, "Click en " + listaArticulos.get(listausuarios.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Selecciono el usuario: " + listaArticulos.get(listausuarios.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
                                 // Datos para enviar
                                 Bundle datos = new Bundle();
                                 datos.putInt("id", listaArticulos.get(listausuarios.getChildAdapterPosition(view)).getId());

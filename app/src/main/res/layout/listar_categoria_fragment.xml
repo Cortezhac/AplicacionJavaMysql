@@ -11,6 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     android:layout_gravity="center"
     >
 
@@ -24,8 +25,9 @@
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCategorias"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="379dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="119dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

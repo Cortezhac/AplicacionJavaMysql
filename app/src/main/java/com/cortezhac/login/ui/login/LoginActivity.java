@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(String response) {
                     // 0 = sin datos
                     if(response.equals("0")){
-                        Toast.makeText(getApplicationContext(), "No se encontro ningun dato", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Usuario no Registrado", Toast.LENGTH_SHORT).show();
                     }else{
                         JSONObject datosRemotos = null;
                         try{
@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(datosRemotos.getString("nombre").length() > 0 && datosRemotos.getString("apellidos").length() > 0){
                                 Intent datos = new Intent(getApplicationContext(), NavigationDrawerActivity.class);
                                 startActivity(datos);
+                                Toast.makeText(getApplicationContext(), "Bienvenido/a "+datosRemotos.getString("nombre"), Toast.LENGTH_SHORT).show();
                             }
                             Log.i("remote", "Datos personas momnbre" + datosRemotos.getString("nombre"));
                             Log.i("remote", "Datos personas apellido" + datosRemotos.getString("apellido"));
@@ -103,5 +104,11 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
     }
 }
