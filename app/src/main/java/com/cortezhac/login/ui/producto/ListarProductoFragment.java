@@ -50,7 +50,7 @@ public class ListarProductoFragment extends Fragment {
     
     //Lista de productos
     ArrayList<tb_producto> productosList;
-    tb_producto producto = new tb_producto();
+    tb_producto producto;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -112,6 +112,7 @@ public class ListarProductoFragment extends Fragment {
                         lista = new JSONArray(response);
                         for(int i = 0; i < lista.length(); i++){
                             registro = new JSONObject(lista.getString(i));
+                            producto = new tb_producto();
                             producto.setId_producto(registro.getInt("id_producto"));
                             producto.setNombre_producto(registro.getString("nom_producto"));
                             producto.setEstado_producto(registro.getInt("estado_producto"));
